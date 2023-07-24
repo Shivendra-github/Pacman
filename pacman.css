@@ -1,0 +1,963 @@
+html,body{
+
+  
+     background-color: #F0F8FF; 
+ 
+    
+  
+
+
+
+
+}
+
+@font-face {
+    font-family:pacman-font;
+    src: url(fonts/e3t4euO8T-267oIAQAu6jDQyK3nVivM.woff2);
+}
+@font-face {
+    font-family:pac-man;
+    src: url(fonts/_ChEKD0RlbGEgR290aGljIE9uZSAFQhQKEGphcGFuZXNlX2RlZmF1bHQQAA==.118.woff2),url(fonts/_ChEKD0RlbGEgR290aGljIE9uZSAFQhQKEGphcGFuZXNlX2RlZmF1bHQQAA==.119.woff2);
+}
+
+#header{
+margin-top: 20px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+color: white;
+font-family:pacman-font;
+
+
+}
+
+#score-txt{
+
+
+margin-left: 10px;
+
+}
+
+#hi-txt{
+
+margin-right:10px ;
+
+
+}
+
+h1,p{
+
+margin-top: 0px;
+margin-bottom: 0px;
+
+}
+
+.bonus-cherry{
+    height: 30px;
+    width: 30px;
+    background-image: url(images/bonus-cherry.png);
+    background-size: contain;
+    margin: 10px;
+    background-repeat: no-repeat;
+
+    
+}
+
+
+#screen-container{
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 570px;
+    /* background: linear-gradient(to bottom right, #999999, #808080); */
+    background-color: #313130;
+    border: 3px solid #9aba5a;
+    
+   
+    border-radius: 20px;
+    justify-content:space-evenly;
+
+
+
+}
+
+.bottom-animation{
+
+    position: relative;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+
+
+}
+
+.border-top{
+
+border-top: 2px solid blue;
+
+
+}
+
+
+
+
+.grid{
+
+    width: 420px;
+    height: 465px;
+   
+    display: flex;
+    flex-wrap:wrap;
+
+}
+
+.squares{
+
+    height: 15px;
+    width: 15px;
+   
+
+}
+
+.pac-dot{   
+
+    background-color: orange;
+    border: 6px solid  #313130;
+    box-sizing: border-box;
+
+
+}
+
+.wall{
+
+/* background: radial-gradient(circle, #ac6 70%, #9aba5a 100%); */
+background-color: rgb(4, 194, 118);
+border: none;
+
+box-sizing: border-box;
+
+}
+
+.power-pellet{
+
+    background-color: sandybrown;
+    border-radius: 50%;
+
+}
+
+.power-pellet{
+
+
+
+    animation: powerpill 2.5s infinite
+}
+
+@keyframes powerpill {
+
+    50%{
+
+        transform: scale(1);
+        background-color: #eafa8d;
+
+
+    }
+    
+}
+
+
+.invisible-wall{
+
+   
+
+
+}
+
+.door{
+
+    background-color: tomato;
+    box-sizing: border-box;
+    border-top: 5px solid #313130;
+    border-bottom: 5px solid #313130;
+
+
+}
+
+
+
+
+
+.pacman{
+
+
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+
+}
+
+.blank{
+
+    background-color: #313130;
+    
+    
+    }
+
+@media screen and (max-width:600px) {
+
+    body,html{
+
+        width: 100%;
+
+
+    }
+    
+}
+
+/* Animation */
+
+.pacman-man2{
+
+margin-left: 40px;
+
+}
+
+#pacman-container{
+
+margin-left: 10px;
+margin-top: 0px;
+margin-bottom: 0px;
+
+
+
+}
+
+
+#cherry{
+
+    height: 25px;
+    width: 25px;
+    background-image: url(images/bonus-cherry.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+   
+
+
+
+}
+
+.pacman-animation{
+
+position: relative;
+width: 100%;
+display: flex;
+justify-content: space-between;
+
+
+}
+
+#pacman-man{
+
+    position: relative;
+    
+    
+    }
+    
+    #pacman-man::before,#pacman-man::after{
+    
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        border: 12px solid #ff0;
+        border-radius: 50%;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        animation: mouthTop 0.7s ease infinite;
+    
+    
+    }
+    
+    #pacman-man::after{
+    
+    
+    
+    
+    border-color: #ff0;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
+    
+    
+    
+    }
+    
+    
+    @keyframes mouthTop {
+    
+        50%{
+    
+            transform: rotate(44deg);
+    
+        }
+        
+    }
+    
+    @keyframes mouthBottom {
+    
+        50%{
+    
+            transform: rotate(-44deg);
+    
+        }
+        
+    }
+
+
+
+/* ----------------------------------------------------------------------------------------- */
+
+
+.pacman::before,.pacman::after{
+    
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 8px solid #ff0;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+
+
+}
+
+.pacman::after{
+
+
+
+
+border-color: #ff0;
+border-right-color: transparent;
+border-top-color: transparent;
+animation: mouthBottom 0.7s ease infinite;
+
+
+
+}
+
+
+@keyframes mouthTop {
+
+    50%{
+
+        transform: rotate(44deg);
+
+    }
+    
+}
+
+@keyframes mouthBottom {
+
+    50%{
+
+        transform: rotate(-44deg);
+
+    }
+    
+}
+
+/* -----------------------------pacman up face ---------------------------------- */
+
+.pacman-up{
+
+position: relative;
+
+
+}
+
+
+
+.pacman-up::before,.pacman-up::after{
+    
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 8px solid #ff0;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    animation: mouthTop-up 0.7s ease infinite;
+
+
+}
+
+.pacman-up::after{
+
+
+
+
+border-color: #ff0;
+border-left-color: transparent;
+border-top-color: transparent;
+animation: mouthBottom-up 0.7s ease infinite;
+
+
+
+}
+
+
+@keyframes mouthTop-up {
+
+    50%{
+
+        transform: rotate(44deg);
+
+    }
+    
+}
+
+@keyframes mouthBottom-up {
+
+    50%{
+
+        transform: rotate(-44deg);
+
+    }
+    
+}
+
+
+
+/* --------------------------------face down ------------------------------------- */
+
+
+
+
+.pacman-down{
+
+    position: relative;
+    
+    
+    }
+    
+    
+    
+    .pacman-down::before,.pacman-down::after{
+        
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        border: 8px solid #ff0;
+        border-radius: 50%;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+        animation: mouthTop-up 0.7s ease infinite;
+    
+    
+    }
+    
+    .pacman-down::after{
+    
+    
+    
+    
+    border-color: #ff0;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthBottom-up 0.7s ease infinite;
+    
+    
+    
+    }
+    
+    
+    @keyframes mouthTop-up {
+    
+        50%{
+    
+            transform: rotate(44deg);
+    
+        }
+        
+    }
+    
+    @keyframes mouthBottom-up {
+    
+        50%{
+    
+            transform: rotate(-44deg);
+    
+        }
+        
+    }
+
+/* 
+    -----------------------------left-------------------------------------------- */
+
+  
+
+.pacman-left{
+
+    position: relative;
+    
+    
+    }
+    
+    
+    
+    .pacman-left::before,.pacman-left::after{
+        
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        position: absolute;
+        border: 8px solid #ff0;
+        border-radius: 50%;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        animation: mouthTop-left 0.7s ease infinite;
+    
+    
+    }
+    
+    .pacman-left::after{
+    
+    
+    
+    
+    border-color: #ff0;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    animation: mouthBottom-left 0.7s ease infinite;
+    
+    
+    
+    }
+
+
+        
+    @keyframes mouthTop-left {
+    
+        50%{
+    
+            transform: rotate(-44deg);
+    
+        }
+        
+    }
+    
+    @keyframes mouthBottom-left {
+    
+        50%{
+    
+            transform: rotate(44deg);
+    
+        }
+        
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-container{
+
+    margin: 0 auto;
+    position: relative;
+    height:200px;
+    width: 420px;
+    border: solid 2px ;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    
+    margin-top: 15px;
+    border: 6px solid #000;
+    border-radius: 6px;
+    background: radial-gradient(circle, rgb(67, 67, 67) 50%, black 100%);
+    font-family:pacman-font;
+        
+        
+        }
+
+        /* background: radial-gradient(circle, rgb(67, 67, 67) 10%, black 100%); */
+#game-message{
+            display: block;
+            background-color: rgba(0, 0, 0,0.5);
+            
+            
+}
+
+
+/* .game-message P {
+            font-size: 0.8rem;
+            line-height: 1.3;
+            padding: 5px 25px;
+          } */
+
+#game-message {
+    font-family:pacman-font;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0,0.5);
+    border-radius: 20px;
+    color:white;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+
+    box-sizing: border-box;
+          }
+
+
+#message{
+
+position: absolute;
+top: 50%;
+bottom: 0;
+left: 0;
+right: 0;
+transform: translateY(-50%);
+padding: 20px;
+
+
+
+
+
+}
+
+
+
+
+
+
+.d-pad-container{
+
+
+    
+            
+            width: 50%;
+            position: relative;
+            display: inline-block;
+            margin-left: 10px;
+          
+            
+            
+        
+        
+        }
+
+        #start-txt{
+
+
+            color: white;
+            font-size: 0.6rem;
+            margin-bottom: 5px;
+
+
+        }
+
+        #start{
+
+            color: whitesmoke;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        #reset-txt{
+
+
+            color: white;
+            font-size: 0.6rem;
+            margin-bottom: 5px;
+
+        }
+
+        .game-start-rest{
+
+
+            display: flex;
+            
+
+
+
+
+        }
+
+        .game-start-rest-start{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            margin: 10px;
+
+
+
+
+        }
+
+
+        #btn-left-right{
+
+
+            display: flex;
+            flex-direction: row;
+           justify-content:space-evenly;
+           gap: 10px;
+           
+            
+        
+        
+        } 
+        
+        
+        #btn-up{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+        
+        
+        
+        }
+        
+        #btn-down{
+        
+        
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        
+        }
+        
+        button{
+        
+            width: 40px;
+            height: 40px;
+            border: unset;
+            cursor: pointer;
+            box-shadow: 2px 2px 6px #000;
+            text-decoration: none;
+            padding: 0;
+            font-size: 1rem;
+            color: white;
+            margin: 2px;
+            background-color: #313130;
+            border-radius:2px;
+            border: 2px solid white;
+            font-family:pacman-font;
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        }
+        
+        
+        button:active {
+            background-color: gray;
+            transform: scale(0.9);
+          }
+        
+          button:hover,button:focus {
+            border: 2px solid rgb(4, 194, 118);
+            outline-style: none;
+          }
+        
+        
+        .game-btn{
+            
+            background-color: #ab3c63;
+          border-radius: 100%;
+          font-size: 20px;
+          
+          
+        
+        
+        
+            }
+
+#pacman-logo{
+
+color: white;
+font-family: pac-man;
+font-size: 1.5rem;
+font-style: italic;
+
+
+
+
+}
+
+#logo-bottom{
+
+
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+justify-content: space-around;
+width: 100%;
+
+
+
+}
+
+
+a {
+    color: rgb(51, 122, 183);
+    text-decoration: none;
+}
+
+footer{
+
+
+font-family: pac-man;
+text-align: center;
+font-size: 1rem;
+margin: 5px;
+
+}
+
+
+.blinky{
+
+
+    background-image: url(images/blinky.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #313130;
+
+
+}
+
+.pinky{
+
+    background-image: url(images/pinky.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #313130;
+
+
+}
+
+.inky{
+
+    background-image: url(images/inky.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #313130;
+
+}
+
+.clyde{
+
+
+    background-image: url(images/clyde.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: #313130;
+
+
+}
+
+.scared-ghost{
+
+
+     
+
+
+
+
+}
+
+.scared-ghost{
+
+
+
+    animation: scared 2s infinite;
+}
+
+@keyframes scared {
+
+    10%{
+
+        transform: scale(1.0);
+        background-image: url(images/Vulnerable-ghost.jpg);
+        background-size:contain ;
+        background-repeat: no-repeat;
+        background-position: center;
+
+
+    }
+    
+}
+    
+  

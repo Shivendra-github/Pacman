@@ -1,0 +1,57 @@
+#pacman-man{
+
+position: absolute;
+z-index: 99;
+
+}
+
+#pacman-man::before,#pacman-man::after{
+
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 30px solid tomato;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+
+
+}
+
+#pacman-man::after{
+
+
+
+
+border-color: tomato;
+border-right-color: transparent;
+border-top-color: transparent;
+animation: mouthBottom 0.7s ease infinite;
+
+
+
+}
+
+
+@keyframes mouthTop {
+
+    50%{
+
+        transform: rotate(44deg);
+
+    }
+    
+}
+
+@keyframes mouthBottom {
+
+    50%{
+
+        transform: rotate(-44deg);
+
+    }
+    
+}
