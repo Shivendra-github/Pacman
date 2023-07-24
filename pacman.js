@@ -545,6 +545,7 @@ function gameOver(){
         ghosts.forEach(ghost=>clearInterval(ghost.timerId));
     //remove eventlistener from our control function
         document.removeEventListener('keyup',handleKeyInput);
+        document.querySelectorAll('.d-btn').forEach(item => item.removeEventListener('click', handleKeyInput))
     //tell user game is over
     scoreDisplay.innerHTML='You Lost';
 
